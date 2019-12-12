@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Selfie à Wookie</title>
+
+    <!-- <link rel="stylesheet" href="./assets/css/main.css"> -->
+
+    <style>
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        .debug {
+            border: 1px solid red;
+        }
+
+        .fixed {
+            position: fixed;
+        }
+
+        .m-10 {
+            margin: 10px
+        }
+
+        .m-t-50 {
+            margin-top: 50px;
+        }
+
+        .p-10 {
+            padding: 10px;
+        }
+
+        .aumax {
+            width: 100%;
+        }
+
+        .header {
+            left: 0;
+            top: 0;
+        }
+
+        .footer {
+
+            bottom: 0;
+        }
+
+        .container {}
+
+        .container .row {}
+
+        .container .flexible {
+            display: flex;
+        }
+
+        .container .row .col {}
+
+        .taille-container {
+            width: 1050px;
+        }
+
+        .auto-margin {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media screen and (max-width: 500px) {
+            .taille-container {
+                width: 450px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header fixed debug p-10 aumax">
+        <div class="container">
+            <div class="row flexible">
+                <div class="col">
+                    Logo
+                </div>
+                <div class="col">
+                    Premier menu
+                </div>
+            </div>
+        </div>
+        </div>
+
+    </header>
+    <div class="m-t-50">
+        <!-- 
+            Url complète
+            <img src="https://www.newshub.co.nz/dam/form-uploaded-images/0_CATERS_BELLYDANCING_WOOKIE_04-1120.jpg" alt="Wookie rigolo"> 
+        -->
+
+        <!-- Url relative -->
+        <section class="auto-margin taille-container">
+            <article class="container">
+                <div class="row flexible">
+                    <div class="col">
+                        <h1>Titre selfie</h1>
+                    </div>
+                    <div class="col">
+                        [..]
+                    </div>
+                </div>
+                <div class="row flexible">
+                    <div class="col">
+                        <img src="./images/wookie-1.jpg" alt="Wookie rigolo 2" title="Wookie très rigolo">
+                    </div>
+                </div>
+            </article>
+            <article class="textcentreetcolorerouge">
+                <header>
+                    <div>
+                        <h1>Le titre du selfie 2</h1>
+                        <h2>Le sous titre 2</h2>
+                    </div>
+                    <div>
+                        [..]
+                    </div>
+                </header>
+                <img src="./images/wookie-1.jpg" alt="Wookie rigolo 2" title="Wookie très rigolo 2">
+            </article>
+        </section>
+    </div>
+    <footer class="footer fixed aumax debug ">
+        Footer
+    </footer>
+
+
+</body>
+
+</html>
