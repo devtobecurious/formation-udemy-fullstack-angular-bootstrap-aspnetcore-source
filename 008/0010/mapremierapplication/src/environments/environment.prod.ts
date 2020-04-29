@@ -1,3 +1,8 @@
 export const environment = {
-  production: true
+  production: true,
+  apis: {
+    wookies: {
+      url: 'http://urldeprod/....'
+    }
+  }
 };
