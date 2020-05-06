@@ -1,40 +1,12 @@
-<header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-warning">
-        <a class="navbar-brand" href="#">SaW</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Accueil <span class="sr-only">(courant)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Un selfie</a>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Ta recherche ..."
-                    aria-label="Ta recherche ....">
-                <button class="btn btn-danger my-2 my-sm-0" type="submit">Recherche</button>
-            </form>
-        </div>
-    </nav>
-</header>
+<app-menu-general (lancerRecherche)="rechercherSelfies($event)"></app-menu-general>
 
 <h1>{{ title }}</h1>
 <h2>{{ subTitle }}</h2>
 
-<img *ngIf="logoAffiche; else contraireIf" src="http://www.funnylla.com/articles-images/207/one-fun-day-in-the-life-of-a-wookie_big.jpg" alt="" srcset="">
-
-<ng-template #contraireIf>
-    <b>Pas d'image</b>
-</ng-template>
-
-<ul>
-    <li *ngFor="let unSelfie of lesSelfies">
-        {{ unSelfie.wookie.nom }}
-    </li>
-</ul>
+<main class="container">
+    <div class="row">
+        <div class="col-sm-9">
+            <app-selfie-list [filtre]="valeurARechercher"></app-selfie-list>
+        </div>
+    </div>  
+</main>

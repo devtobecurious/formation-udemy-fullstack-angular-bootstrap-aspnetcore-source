@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Selfie } from './models/selfie';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +8,10 @@ import { Selfie } from './models/selfie';
 export class AppComponent {
   title = 'Selfie à Wookies';
   subTitle = 'La super application';
-  logoAffiche = true;
-  lesSelfies: Selfie[] = [
-    { image: '', wookie: { nom: 'Chewie', selfies: []} },
-    { image: '', wookie: { nom: 'Chewie 2', selfies: []} }
-  ];
+  valeurARechercher = '';
+
+  rechercherSelfies(valeur: string) {
+    console.log('AppComponent', valeur);
+    this.valeurARechercher = valeur;
+  }
 }

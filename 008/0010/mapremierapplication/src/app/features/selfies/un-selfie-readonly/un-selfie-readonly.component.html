@@ -1,0 +1,30 @@
+
+<article>
+    <header class="col">
+        <div class="row">
+            <div class="col-9">
+                <h2>{{ unSelfie.titre }}</h2>
+            </div>
+            <div class="col text-right">
+                [..]
+            </div>
+        </div>
+    </header>
+    <div class="w-100"></div>
+    <div class="col pb-2">
+        <img class="img-fluid" [src]="unSelfie.image">
+    </div>
+    <div class="w-100"></div>
+    <div class="col footer pb-2">
+        <div class="d-flex">
+            <div class="mr-2">
+                <a type="button" class="btn " data-toggle="modal" data-target="#exampleModal">
+                    <i class="fa fa-heart"></i>
+                </a>
+            </div>
+            <div class="">
+                <i class="fa fa-heart"></i>
+            </div>
+        </div>
+    </div>
+</article>
