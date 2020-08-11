@@ -6,7 +6,7 @@ import { Component, OnInit, ViewChild, ElementRef, EventEmitter, Output } from '
   styleUrls: ['./menu-general.component.css']
 })
 export class MenuGeneralComponent implements OnInit {
-  @ViewChild('zoneRecherche', { static: false })
+  @ViewChild('zoneRecherche')
     maZoneDeRecherche: ElementRef;
 
   @Output()
