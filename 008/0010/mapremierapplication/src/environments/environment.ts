@@ -3,12 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  apis: {
-    wookies: {
-      url: 'http://localhost/....'
-    }
-  }
+  production: false
 };
 
 /*

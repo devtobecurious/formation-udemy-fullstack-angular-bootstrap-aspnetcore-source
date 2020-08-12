@@ -1,7 +1,7 @@
+import { SelfieService } from './../../../shared/services/selfies/selfie.service';
+import { LoggerService } from './../../../shared/services/logger/logger.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { Selfie } from 'src/app/models/selfie';
-import { LoggerService } from 'src/app/shared/services/logger.service';
-import { SelfieService } from 'src/app/shared/services/selfie.service';
 
 @Component({
   selector: 'app-selfie-list',
@@ -9,22 +9,18 @@ import { SelfieService } from 'src/app/shared/services/selfie.service';
   styleUrls: ['./selfie-list.component.css'],
 })
 export class SelfieListComponent implements OnInit {
-  // logger = new LoggerService();
-  monLogger: LoggerService;
 
-  constructor(logger: LoggerService, private selfieService: SelfieService) {
-    this.monLogger = logger;
-
+  constructor(private _loggerService: LoggerService, private _selfieService: SelfieService) {
   }
   
   lesSelfies: Selfie[] = null;
   
   @Input()
   set filtre(valeur: string) {
-    this.monLogger.log('SelfieListComponent', valeur);
+    
   }
   
   ngOnInit() {
-    this.lesSelfies = this.selfieService.getAll();
+    this.lesSelfies = this._selfieService.getAll();
   }
 }
