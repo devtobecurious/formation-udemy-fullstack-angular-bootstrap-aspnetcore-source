@@ -9,6 +9,7 @@ import { Selfie } from 'src/app/models/selfie';
   styleUrls: ['./selfie-list.component.css'],
 })
 export class SelfieListComponent implements OnInit {
+  public selfieAAjouter: Selfie = null;
 
   constructor(private _loggerService: LoggerService, private _selfieService: SelfieService) {
   }
@@ -22,5 +23,14 @@ export class SelfieListComponent implements OnInit {
   
   ngOnInit() {
     this.lesSelfies = this._selfieService.getAll();
+  }
+
+  demandeAfficherPourAjoutSelfie(): void {
+    this.selfieAAjouter = new Selfie();
+    this.selfieAAjouter.titre = 'Test 01';
+  }
+
+  cacherZoneAjoutSelfie(): void {
+    this.selfieAAjouter = null;
   }
 }

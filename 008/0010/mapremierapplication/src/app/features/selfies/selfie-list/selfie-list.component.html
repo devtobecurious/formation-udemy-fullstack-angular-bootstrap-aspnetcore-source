@@ -4,4 +4,16 @@
     </li>
 </ul> -->
 
+
+<div class="row">
+    <div class="col">
+        <button type="button" class="btn btn-success" (click)="demandeAfficherPourAjoutSelfie()">Ajouter un selfie</button>
+    </div>
+</div>
+
+<app-add-selfie *ngIf="selfieAAjouter" [selfieARenseigner]="selfieAAjouter" (annulerAjouter)="cacherZoneAjoutSelfie()"></app-add-selfie>
+
 <app-un-selfie-readonly [unSelfie]="selfieDuFor" *ngFor="let selfieDuFor of lesSelfies"></app-un-selfie-readonly>
+
+
+
