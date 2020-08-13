@@ -1,4 +1,8 @@
 export const environment = {
-  production: true
-  
+  production: false,
+  apis: {
+    selfies: {
+      url: '<<a definir>>'
+    }
+  }
 };

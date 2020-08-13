@@ -1,6 +1,7 @@
+import { Subscription } from 'rxjs';
 import { SelfieService } from './../../../shared/services/selfies/selfie.service';
 import { LoggerService } from './../../../shared/services/logger/logger.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Selfie } from 'src/app/models/selfie';
 
 @Component({
@@ -8,8 +9,9 @@ import { Selfie } from 'src/app/models/selfie';
   templateUrl: './selfie-list.component.html',
   styleUrls: ['./selfie-list.component.css'],
 })
-export class SelfieListComponent implements OnInit {
+export class SelfieListComponent implements OnInit, OnDestroy {
   public selfieAAjouter: Selfie = null;
+  private _subscriptions: Subscription[] = [];
 
   constructor(private _loggerService: LoggerService, private _selfieService: SelfieService) {
   }
@@ -18,11 +20,14 @@ export class SelfieListComponent implements OnInit {
   
   @Input()
   set filtre(valeur: string) {
-    
   }
   
   ngOnInit() {
-    this.lesSelfies = this._selfieService.getAll();
+     this._subscriptions.push(this._selfieService.getAll().subscribe(items => this.lesSelfies = items));
+  }
+
+  ngOnDestroy(): void {
+    this._subscriptions.forEach(item => item.unsubscribe());
   }
 
   demandeAfficherPourAjoutSelfie(): void {
