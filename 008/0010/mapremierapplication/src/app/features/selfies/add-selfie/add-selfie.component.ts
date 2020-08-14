@@ -1,3 +1,4 @@
+import { SelfieService } from './../../../shared/services/selfies/selfie.service';
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { Selfie } from 'src/app/models/selfie';
 
@@ -13,13 +14,16 @@ export class AddSelfieComponent implements OnInit {
   @Input()
   selfieARenseigner: Selfie = null;
 
-  constructor() { }
+  constructor(private _selfieService: SelfieService) { }
 
   ngOnInit(): void {
   }
 
   clickSurAjouter() {
-    
+    this._selfieService.ajouter(this.selfieARenseigner)
+                       .subscribe(item => this.selfieARenseigner = item);
+
+    // TODO: Informer le parent 
   }
 
   clickSuAnnulerSaisie() {

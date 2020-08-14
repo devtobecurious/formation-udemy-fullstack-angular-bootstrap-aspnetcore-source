@@ -22,4 +22,13 @@ export class SelfieService {
   getAll(): Observable<Selfie[]> {
     return this._httpClient.get<Selfie[]>(environment.apis.selfies.url);
   }
+
+  /**
+   *  Ajouter d'un selfie : envoie des données en json vers l'api
+   * et récupération du selfie ajouté
+   * @param selfie
+   */
+  ajouter(selfie: Selfie): Observable<Selfie> {
+    return this._httpClient.post<Selfie>(environment.apis.selfies.url, selfie);
+  }
 }

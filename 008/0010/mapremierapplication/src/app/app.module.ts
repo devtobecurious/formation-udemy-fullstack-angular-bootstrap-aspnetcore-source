@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -19,6 +20,7 @@ import { AddSelfieComponent } from './features/selfies/add-selfie/add-selfie.com
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     FormsModule    
   ],
   providers: [
