@@ -1,27 +1,28 @@
 import { HttpClientModule } from '@angular/common/http';
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 
+import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AppComponent } from './app.component';
+import { SelfieModule } from './features/selfies/selfie.module';
 import { MenuGeneralComponent } from './shared/components/menu-general/menu-general.component';
-import { SelfieListComponent } from './features/selfies/selfie-list/selfie-list.component';
-import { UnSelfieReadonlyComponent } from './features/selfies/un-selfie-readonly/un-selfie-readonly.component';
-import { LoggerService } from './shared/services/logger/logger.service';
-import { AddSelfieComponent } from './features/selfies/add-selfie/add-selfie.component';
+import { SharedModule } from './shared/modules/shared/shared.module';
+import { NotFoundComponent } from './shared/components/not-found/not-found.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuGeneralComponent,
-    SelfieListComponent,
-    UnSelfieReadonlyComponent,
-    AddSelfieComponent
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule    
+    SelfieModule,
+    AppRoutingModule,
+    SharedModule,
   ],
   providers: [
     // LoggerService

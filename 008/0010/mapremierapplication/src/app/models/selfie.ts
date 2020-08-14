@@ -6,6 +6,7 @@ import { Wookie } from './wookie';
 export class Selfie {
     id: number;
     image: string;
+    imageAs64: string;
     wookie: Wookie;
     titre: string;
 

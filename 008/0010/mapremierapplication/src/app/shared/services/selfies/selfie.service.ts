@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, Self } from '@angular/core';
 
 import { LoggerService } from '../logger/logger.service';
 import { Selfie } from './../../../models/selfie';
@@ -21,6 +21,17 @@ export class SelfieService {
    */
   getAll(): Observable<Selfie[]> {
     return this._httpClient.get<Selfie[]>(environment.apis.selfies.url);
+  }
+
+  /**
+   *Retourne un seul selfie avec son wookie
+   *
+   * @param {number} id
+   * @returns {Observable<Selfie>}
+   * @memberof SelfieService
+   */
+  getOne(id: number): Observable<Selfie> {
+    return this._httpClient.get<Selfie>(environment.apis.selfies.url + '/' + id);
   }
 
   /**

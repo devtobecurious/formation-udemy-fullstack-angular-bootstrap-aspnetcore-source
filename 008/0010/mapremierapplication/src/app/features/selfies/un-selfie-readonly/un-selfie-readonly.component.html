@@ -1,5 +1,5 @@
 
-<article>
+<article (click)="clickPourConsultation()">
     <header class="col">
         <div class="row">
             <div class="col-9">
@@ -18,9 +18,7 @@
     <div class="col footer pb-2">
         <div class="d-flex">
             <div class="mr-2">
-                <a type="button" class="btn " data-toggle="modal" data-target="#exampleModal">
-                    <i class="fa fa-heart"></i>
-                </a>
+                <button (click)="clickPourDuel()" type="button" class="btn btn-info">Lancer le duel</button>
             </div>
             <div class="">
                 <i class="fa fa-heart"></i>

@@ -1,3 +1,4 @@
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Component, OnInit, Input } from '@angular/core';
 import { Selfie } from 'src/app/models/selfie';
 
@@ -11,9 +12,19 @@ export class UnSelfieReadonlyComponent implements OnInit {
   @Input()
   public unSelfie: Selfie = null;
 
-  constructor() { }
+  constructor(private _router: Router) { }
 
   ngOnInit() {
   }
 
+  clickPourDuel() {
+    this._router.navigate(['/duels/nouveau']);
+  }
+
+  clickPourConsultation() {
+    // TODO: renseigner l'id dans notre api.
+    this.unSelfie.id = 2;
+    //ENDOFTODO
+    this._router.navigate(['/selfies/consulter', this.unSelfie.id]);
+  }
 }
