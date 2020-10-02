@@ -10,14 +10,14 @@ const routes: Routes = [
   },
   {
     path: 'selfies', component: SelfieListComponent
-  }
+  },
   
 ];
 
 @NgModule({
   declarations: [],
   imports: [
-    RouterModule.forRoot(routes)
+    RouterModule.forChild(routes)
   ],
   exports: [
     RouterModule
