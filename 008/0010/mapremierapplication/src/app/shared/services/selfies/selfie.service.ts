@@ -5,6 +5,16 @@ import { LoggerService } from '../logger/logger.service';
 import { Selfie } from './../../../models/selfie';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { map } from 'rxjs/operators';
+import { Wookie } from 'src/app/models/wookie';
+
+export type ApiSelfiesResult = {
+  result: [{
+    nbSelfiesFromWookie: number,
+    title: string,
+    wookieId: number
+  }]
+}
 
 /**
  * Service gérant les selfies (CRUD)
@@ -20,7 +30,24 @@ export class SelfieService {
    * Retourne la liste complète des selfies (ici 2 éléments en dur)
    */
   getAll(): Observable<Selfie[]> {
-    return this._httpClient.get<Selfie[]>(environment.apis.selfies.url);
+    return this._httpClient.get<ApiSelfiesResult>(environment.apis.selfies.url)
+                           .pipe(
+                             map(data => {
+                              let array: Selfie[] = [];
+
+                              array = data.result.map(selfieFromApi => {
+                                const selfie = new Selfie();
+
+                                selfie.id = 0;
+                                selfie.titre = selfieFromApi.title;
+                                selfie.wookie = new Wookie();
+
+                                return selfie;
+                              });
+
+                              return array;
+                             })
+                           );
   }
 
   /**
